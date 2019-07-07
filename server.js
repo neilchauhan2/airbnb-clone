@@ -12,6 +12,18 @@ app.get("/", (req, res) => {
     `);
 });
 
+// DB Config
+const uri = config.get("mongoURI");
+
+// Connect to Mongo
+mongoose
+  .connect(uri, {
+    useNewUrlParser: true,
+    useCreateIndex: true
+  }) // Adding new mongo url parser
+  .then(() => console.log("database connected!"))
+  .catch(err => console.log(err));
+
 app.listen(port, () => {
   console.log(`server started at http://localhost:${port}`);
 });
