@@ -9,6 +9,9 @@ const HomeSchema = new Schema({
   location: {
     type: String
   },
+  price: {
+    type: String
+  },
   keyInfo: [{ item: String }],
   description: {
     type: String
