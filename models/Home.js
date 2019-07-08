@@ -21,7 +21,8 @@ const HomeSchema = new Schema({
     hostname: String,
     location: String,
     description: String
-  }
+  },
+  photos: [{ url: String }]
 });
 
 module.exports = Home = mongoose.model("home", HomeSchema);
