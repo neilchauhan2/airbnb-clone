@@ -22,7 +22,11 @@ const HomeSchema = new Schema({
     location: String,
     description: String
   },
-  photos: [{ url: String }]
+  photos: [{ url: String }],
+  createdAt: {
+    type: Date,
+    default: Date.now
+  }
 });
 
 module.exports = Home = mongoose.model("home", HomeSchema);
