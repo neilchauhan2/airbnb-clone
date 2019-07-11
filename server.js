@@ -9,6 +9,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use("/homes", require("./routes/homes"));
 app.use("/guests", require("./routes/users"));
+app.use("/hosts", require("./routes/hosts"));
 
 app.get("/", (req, res) => {
   res.send(`

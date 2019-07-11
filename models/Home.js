@@ -1,5 +1,6 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
+const ObjectId = mongoose.Schema.Types.ObjectId;
 
 const HomeSchema = new Schema({
   name: {
@@ -18,6 +19,7 @@ const HomeSchema = new Schema({
   },
   amenities: [{ item: String }],
   host: {
+    id: ObjectId,
     hostname: String,
     location: String,
     description: String
