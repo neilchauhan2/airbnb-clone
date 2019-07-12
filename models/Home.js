@@ -18,8 +18,8 @@ const HomeSchema = new Schema({
     type: String
   },
   amenities: [{ item: String }],
+  hostId: ObjectId,
   host: {
-    id: ObjectId,
     hostname: String,
     location: String,
     description: String

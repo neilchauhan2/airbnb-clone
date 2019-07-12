@@ -7,6 +7,16 @@ route.get("/", async (req, res) => {
   res.send(homes);
 });
 
+// get all homes of a particular host
+route.get("/host/:id", async (req, res) => {
+  try {
+    const homes = await Home.find({ hostId: req.params.id });
+    res.send(homes);
+  } catch (error) {
+    throw error;
+  }
+});
+
 // Create a new home
 route.post("/add", async (req, res) => {
   try {
@@ -17,6 +27,7 @@ route.post("/add", async (req, res) => {
       keyInfo: req.body.keyInfo,
       description: req.body.description,
       amenities: req.body.amenities,
+      hostId: req.body.hostId,
       host: req.body.host,
       photos: req.body.photos
     });
