@@ -21,7 +21,22 @@ route.post("/add", async (req, res) => {
 });
 
 // get all bookings of a particular customer
-
+route.get("/customer/:id", async (req, res) => {
+  try {
+    const bookings = await Booking.find({ customerId: req.params.id });
+    res.send(bookings);
+  } catch (error) {
+    throw error;
+  }
+});
 // get all bookings of a particular host
+route.get("/host/:id", async (req, res) => {
+  try {
+    const bookings = await Booking.find({ hostId: req.params.id });
+    res.send(bookings);
+  } catch (error) {
+    throw error;
+  }
+});
 
 module.exports = route;
