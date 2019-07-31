@@ -38,7 +38,8 @@ route.post("/signup", async (req, res) => {
         user: {
           id: newUser.id,
           name: newUser.name,
-          email: newUser.email
+          email: newUser.email,
+          is_host: false
         }
       });
     });
@@ -90,6 +91,22 @@ route.get("/user", auth, async (req, res) => {
   try {
     const user = await User.findById(req.user.id).select("-password");
     res.send(user);
+  } catch (error) {
+    throw error;
+  }
+});
+
+// Become Host
+route.post("/host/getstarted", async (req, res) => {
+  try {
+    const { id, host_location, host_description } = req.body;
+
+    const user = await User.updateOne(
+      { id },
+      { host_location, host_description, is_host: true }
+    );
+
+    await res.send(user);
   } catch (error) {
     throw error;
   }
