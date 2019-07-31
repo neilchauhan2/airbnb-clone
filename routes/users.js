@@ -101,8 +101,13 @@ route.post("/host/getstarted", async (req, res) => {
   try {
     const { id, host_location, host_description } = req.body;
 
-    const user = await User.updateOne(
-      { id },
+    if (!id || !host_location || !host_description) {
+      return res.status(400).send("Please enter all credentials!");
+    }
+
+    const user = await User.findById(id);
+    await user.updateOne(
+      {},
       { host_location, host_description, is_host: true }
     );
 
