@@ -12,10 +12,10 @@ class Location extends Component {
         <div className="container is-fluid">
           <h3 className="is-size-3 location-text">Recommended for you </h3>
           <div className="columns">
-            <LocationColumn image={Delhi} text={"New Delhi"} />
-            <LocationColumn image={Mumbai} text={"Mumbai"} />
-            <LocationColumn image={Kolkata} text={"Kolkata"} />
-            <LocationColumn image={Chennai} text={"Chennai"} />
+            <LocationColumn url={"delhi"} image={Delhi} text={"New Delhi"} />
+            <LocationColumn url={"mumbai"} image={Mumbai} text={"Mumbai"} />
+            <LocationColumn url={"kolkata"} image={Kolkata} text={"Kolkata"} />
+            <LocationColumn url={"chennai"} image={Chennai} text={"Chennai"} />
           </div>
         </div>
       </div>
